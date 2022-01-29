@@ -1,1 +1,24 @@
-<p>base works!</p>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand">
+      Quiz App
+    </a>
+    <div class="text-light float-end fs-5">
+      <a target="_blank" href="https://www.facebook.com/muaaz.altahan.9/">
+        <fa-icon class="text-light p-1" [icon]="facebook"></fa-icon>
+      </a>
+      <a target="_blank" href="https://www.instagram.com/muaaz_al_tahan/">
+        <fa-icon class="text-light p-1" [icon]="instagram"></fa-icon>
+      </a>
+      <a target="_blank" href="https://t.me/muaazaltahan">
+        <fa-icon class="text-light p-1" [icon]="telegram"></fa-icon>
+      </a>
+      <a target="_blank" href="https://github.com/muaazaltahan">
+        <fa-icon class="text-light p-1" [icon]="github"></fa-icon>
+      </a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
