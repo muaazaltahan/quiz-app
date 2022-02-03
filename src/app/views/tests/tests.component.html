@@ -1,1 +1,3 @@
-<p>tests works!</p>
+<div class="row">
+  <app-test class="d-block col-8 p-2 m-1 bg-primary rounded text-light" *ngFor="let test of (tests | async)" [test]="test"></app-test>
+</div>
