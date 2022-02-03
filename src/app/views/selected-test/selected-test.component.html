@@ -1,1 +1,6 @@
-<p>selected-test works!</p>
+<div class="row p-3 mt-2 bg-dark rounded" *ngFor="let question of (test | async).questions">
+  <div class="w-100 p-2 bg-primary text-light text-center fs-4">{{question.title}}</div>
+  <div class="w-100 mt-3">
+    <div class="m-2 fs-6 float-start btn btn-secondary" *ngFor="let answer of question.answers">{{answer.content}}</div>
+  </div>
+</div>
