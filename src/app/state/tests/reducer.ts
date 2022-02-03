@@ -1,4 +1,4 @@
-import { Action, createReducer, on } from "@ngrx/store";
+import { Action, createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { Test } from "src/app/models/test";
 import * as testsActions from "./actions";
@@ -28,10 +28,18 @@ export const initialState = adapter.getInitialState({
 
 const testsReducer = createReducer(
   initialState,
-  on(testsActions.loadSuccess, (state, {tests}) => ({ ...state, tests })),
+  on(testsActions.loadSuccess, (state, {tests}) => adapter.setAll(tests, state)),
   on(testsActions.loadFailed, (state, {error}) => ({...state, error}))
 );
 
 export function reducer(state: TestsState, action: Action) {
   return testsReducer(state, action);
 }
+
+// Selectors
+
+const { selectAll } = adapter.getSelectors();
+
+const feature = createFeatureSelector<TestsState>('tests');
+
+export const getTests = createSelector(feature,selectAll);

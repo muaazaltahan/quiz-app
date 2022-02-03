@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BaseComponent } from './base/base.component';
+import { AppPreloadingStrategyService } from './services/preloading-strategy.service';
 import { AboutComponent } from './views/about/about.component';
 import { HomeComponent } from './views/home/home.component';
 import { SelectedTestComponent } from './views/selected-test/selected-test.component';
@@ -16,7 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{preloadingStrategy: AppPreloadingStrategyService})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
