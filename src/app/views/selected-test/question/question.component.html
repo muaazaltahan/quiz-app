@@ -1,0 +1,7 @@
+<div class="w-100 p-2 bg-primary text-light text-center fs-4 rounded">{{question.title}}</div>
+  <div class="w-100 mt-3">
+    <app-answer
+    *ngFor="let answer of question.answers"
+    [answer]="answer">
+    </app-answer>
+</div>

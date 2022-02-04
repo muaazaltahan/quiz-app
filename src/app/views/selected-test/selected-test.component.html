@@ -1,6 +1,6 @@
-<div class="row p-3 mt-2 bg-dark rounded" *ngFor="let question of (test | async).questions">
-  <div class="w-100 p-2 bg-primary text-light text-center fs-4">{{question.title}}</div>
-  <div class="w-100 mt-3">
-    <div class="m-2 fs-6 float-start btn btn-secondary" *ngFor="let answer of question.answers">{{answer.content}}</div>
-  </div>
-</div>
+<div class="w-100 mt-3 mb-3 bg-secondary fs-3 text-light rounded text-center p-3">{{(test | async).title}}</div>
+<app-question
+class="row p-3 mt-4 bg-dark rounded"
+*ngFor="let question of (test | async).questions"
+[question]="question"
+></app-question>

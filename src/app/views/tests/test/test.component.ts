@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Test } from 'src/app/models/test';
+import { setSelectedTest } from 'src/app/state/selected-test/actions';
 
 @Component({
   selector: 'app-test',
@@ -9,12 +11,13 @@ import { Test } from 'src/app/models/test';
 })
 export class TestComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private store: Store) {}
 
   @Input() test: Test;
 
-  goToTest(id: string) {
-    this.router.navigate([`tests/${id}`]);
+  goToTest(test: Test) {
+    this.store.dispatch(setSelectedTest({test}))
+    this.router.navigate([`tests/${test.id}`]);
   }
 
 }
