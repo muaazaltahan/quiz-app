@@ -1,6 +1,9 @@
 <div class="w-100 mt-3 mb-3 bg-secondary fs-3 text-light rounded text-center p-3">{{(test | async).title}}</div>
+<div class="row">
+  <div class="bg-danger fs-5 text-light p-3 col-lg-2 col-md-3 col-sm-5 rounded">{{time | date:'mm:ss'}}</div>
+</div>
 <app-question
-class="row p-3 mt-4 bg-dark rounded"
-*ngFor="let question of (test | async).questions"
-[question]="question"
+  class="row p-3 mt-4 bg-dark rounded"
+  *ngFor="let question of (test | async).questions"
+  [question]="question"
 ></app-question>
