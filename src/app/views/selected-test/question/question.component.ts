@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Answer } from 'src/app/models/answer';
 import { Question } from 'src/app/models/question';
 
 @Component({
@@ -8,12 +9,16 @@ import { Question } from 'src/app/models/question';
 })
 export class QuestionComponent {
 
-  grades: any[] = [];
-
+  isSolved: boolean = false;
   @Input() question: Question;
+  @Output() grade = new EventEmitter<number>();
 
-  getGrade(status: boolean, id: number) {
-    this.grades.push(id,status);
+  chooseAnswer(a: Answer) {
+    if(a.isTrue) {
+      this.grade.emit(this.question.grade);
+    } else {
+      this.grade.emit(0);
+    }
   }
 
 }

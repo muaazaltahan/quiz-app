@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Congratulations</h1>
+<div class="row" mat-dialog-content>
+  <div class="col-6">Grade:{{data.grade}}</div>
+  <div class="col-6">Time:{{data.time | date:'mm:ss'}}</div>
+</div>
+<div mat-dialog-actions>
+  <button class="btn btn-secondary m-1" (click)="reload()">Try Again</button>
+  <button class="btn btn-success m-1" [mat-dialog-close] (click)="goTo('/tests')">Explore Other Tests</button>
+</div>

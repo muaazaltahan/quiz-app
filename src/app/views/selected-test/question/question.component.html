@@ -1,7 +1,10 @@
 <div class="w-100 p-2 bg-primary text-light text-center fs-4 rounded">{{question.title}}</div>
-  <div class="w-100 mt-3">
-    <app-answer
-    *ngFor="let answer of question.answers"
-    [answer]="answer">
-    </app-answer>
+<div class="w-100 mt-3">
+  <div *ngFor="let answer of question.answers">
+    <div class="m-2 fs-6 float-start btn btn-secondary"
+      [ngClass]="{ 'btn-success': isSolved && answer.isTrue, 'btn-danger': isSolved && !answer.isTrue }"
+      (click)="isSolved=true;chooseAnswer(answer)">
+      {{ answer.content }}
+    </div>
+  </div>
 </div>
